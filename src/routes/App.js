@@ -1,4 +1,4 @@
-import { Login, SignUp, NotFound, ForgotPassword } from "../pages";
+import { Login, SignUp, NotFound, ForgotPassword, Dashboard } from "../pages";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
         <Route path="/login" exact element={<Login />} />
         <Route path="/sign-up" exact element={<SignUp />} />
         <Route path="/forgot-password" exact element={<ForgotPassword />} />
+        <Route path="/dashboard" exact element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

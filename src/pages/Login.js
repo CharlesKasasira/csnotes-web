@@ -2,29 +2,55 @@ import {useState} from 'react'
 import { MdVisibility } from 'react-icons/md'
 import { MdVisibilityOff } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../helpers/firebaseConfig'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from '../hooks/useForm'
 
 function Login() {
     const [ password, setPassword ] = useState('password')
     const [ isVisible, setIsVisible ] = useState(true)
+
+    const navigate = useNavigate()
+
+    const [ user, handleFieldChange ] = useForm({
+      email: '',
+      password: ''
+    })
+
+    const handleLogin = (event) => {
+      event.preventDefault()
+
+      signInWithEmailAndPassword(auth, user.email, user.password)
+        .then(() => {
+          navigate('/dashboard')
+        })
+        .catch(err => console.log(err.message))
+    }
+
+
+
   return (
     <div className="auth-wrapper">
-    <form action="">
+    <form onSubmit={handleLogin}>
       <p>Enter Email and Password to sign in</p>
       <div className="login-inputs">
         <label htmlFor="email">Email</label>
         <input type="email" placeholder="Enter email" name="email" id="email"
+          onChange={handleFieldChange}
           required />
       </div>
 
       <div className="login-inputs">
-        <label htmlFor="password_input">Password</label>
+        <label htmlFor="password">Password</label>
         <div id="password">
           <input
             type={password}
             autoComplete="off"
             placeholder="Enter password"
             name=""
-            id="password_input"
+            id="password"
+            onChange={handleFieldChange}
             required
           />
           <span>
