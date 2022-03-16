@@ -3,10 +3,13 @@ import SignUp from "./SignUp";
 import NotFound from "./NotFound";
 import ForgotPassword from './ForgotPassword'
 import Dashboard from "./Dashboard";
+import PastPapers from "./PastPapers";
+import Profile from "./Profile";
 
 
 export {
     Login,
     SignUp, NotFound,
-    ForgotPassword, Dashboard
+    ForgotPassword, Dashboard,
+    PastPapers, Profile
 }

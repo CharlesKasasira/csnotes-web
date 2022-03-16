@@ -1,0 +1,30 @@
+.menuContainer{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #f7f7f7;
+    height: 100vh;
+    background-color: #fdfdfd;
+}
+
+.nav-link {
+    color: #000;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.nav-link:hover{
+    color: #000;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+}
+
+.active:hover{
+    color: #fff
+}
+
+.active:focus{
+    color: #fff;
+}
