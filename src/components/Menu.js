@@ -6,6 +6,9 @@ import '../styles/menu.css'
 function Menu() {
   return (
     <div className='menuContainer'>
+        <div>
+            <h4>Group J</h4>
+        </div>
         <NavLink
             to='/dashboard'
             activeClassName='is-active'
