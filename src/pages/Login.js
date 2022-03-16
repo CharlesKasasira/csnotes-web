@@ -7,6 +7,8 @@ import { auth } from '../helpers/firebaseConfig'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../hooks/useForm'
 
+import '../styles/login.css'
+
 function Login() {
     const [ password, setPassword ] = useState('password')
     const [ isVisible, setIsVisible ] = useState(true)
