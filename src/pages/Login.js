@@ -11,7 +11,7 @@ import '../styles/login.css'
 
 function Login() {
     const [ password, setPassword ] = useState('password')
-    const [ isVisible, setIsVisible ] = useState(true)
+    const [ isVisible, setIsVisible ] = useState(false)
 
     const navigate = useNavigate()
 
@@ -34,6 +34,9 @@ function Login() {
 
   return (
     <div className="auth-wrapper">
+      <div className='group-j'>
+        <h1>J</h1>
+      </div>
     <form onSubmit={handleLogin}>
       <p>Enter Email and Password to sign in</p>
       <div className="login-inputs">
@@ -45,7 +48,7 @@ function Login() {
 
       <div className="login-inputs">
         <label htmlFor="password">Password</label>
-        <div id="password">
+        <div id="passwordField">
           <input
             type={password}
             autoComplete="off"
@@ -76,23 +79,29 @@ function Login() {
           </span>
         </div>
       </div>
-      <div>
-        <input type="checkbox" name="signedIn" id="checkbox" />
-        <label htmlFor="signedIn">Keep me signed in</label>
-      </div>
       <div id="submit_login">
         <input
           type="submit"
-          className="btn btn-primary cta"
+          className="btn btn-dark cta"
           value="Login"
         />
+      </div>
+      <div className='link-pages'>
         <Link to="/forgot-password">
             <p>Forgot Password?</p>
         </Link>
-        <Link to="/sign-up">
-            <p>Don't have an account, <span>SignUp</span></p>
-        </Link>
+        
+        <p>Don't have an account, 
+          <span>
+          <Link to="/sign-up">
+            SignUp
+          </Link>
+          </span>
+        </p>
+
       </div>
+        
+        
     </form>
   </div>
   )

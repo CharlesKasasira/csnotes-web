@@ -5,17 +5,12 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-  }
-  
-  .auth-wrapper img {
-    margin-bottom: 40px;
+    background-color: #fafafa;
   }
   
   .auth-wrapper form {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     background: #fff;
     border-radius: 5px;
     color: #8e8e93;
@@ -28,15 +23,51 @@
     font-size: 1.1rem;
   }
   
-  #password {
+  #passwordField {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: 1px solid #9a9a9a;
+    border-radius: 5px;
   }
   
-  #password_input {
-    border: none;
+  #password {
+    border: none !important;
     width: 95%;
+  }
+
+  .login-inputs1{
+      margin-bottom: 20px;
+  }
+
+  .login-inputs1 #password {
+      border: 1px solid #9a9a9a !important;
+      border-radius: 5px;
+      padding: 5px 5px;
+  }
+
+  .group-j{
+      background-color: #000;
+      color: #fff;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .link-pages{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 10px;
+  }
+
+  .link-pages a{
+      text-decoration: none;
   }
   
   .visibilityIcon {
@@ -54,14 +85,6 @@
   #checkbox {
     margin-right: 5px;
   }
-  
-  /* #email:focus {
-    outline: 1px solid #1475cf;
-  }
-  
-  #password_input:focus .visibilityIcon{
-      border: 1px solid #1475cf;
-  } */
   
   .auth-wrapper .login-inputs {
     display: flex;

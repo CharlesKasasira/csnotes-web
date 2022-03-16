@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
+import '../styles/login.css'
 
 function ForgotPassword() {
   return (
-    <div>
+    <div className="auth-wrapper">
+      <div className='group-j'>
+        <h1>J</h1>
+      </div>
       <form>
         <p>Forgot Password?</p>
         <p id="enter">Enter your e-mail address to reset your password</p>
@@ -20,13 +24,17 @@ function ForgotPassword() {
         <input
           type="submit"
           id="forgotSubmit"
-          className="btn btn-primary cta"
+          className="btn btn-dark cta"
           value="Submit"
         />
 
-        <Link to="/">
-          <p id="forgotRemember">Remember password? Login</p>
-        </Link>
+        <div className='link-pages'>
+          <Link to="/">
+            <p id="forgotRemember">Remember password? Login</p>
+          </Link>
+        </div>
+
+        
       </form>
     </div>
   )

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { auth } from '../helpers/firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useForm } from '../hooks/useForm'
+import '../styles/login.css'
 
 function SignUp() {
 
@@ -37,9 +38,13 @@ function SignUp() {
         }
     }
   return (
-    <form onSubmit={handleSignUp} name='signUp'>
+      <div className="auth-wrapper">
+          <div className='group-j'>
+            <h1>J</h1>
+        </div>
+            <form onSubmit={handleSignUp} name='signUp'>
         <h5>Sign Up</h5>
-        <div>
+        <div className="login-inputs">
             <label>First Name</label>
             <input
                 placeholder='Enter First Name'
@@ -49,7 +54,7 @@ function SignUp() {
                 required
             />
         </div>
-        <div>
+        <div className="login-inputs">
             <label>Last Name</label>
             <input
                 placeholder='Enter Last Name'
@@ -59,7 +64,7 @@ function SignUp() {
                 required
             />
         </div>
-        <div>
+        <div className="login-inputs">
             <label>Email</label>
             <input
                 placeholder='Enter E-mail'
@@ -69,7 +74,7 @@ function SignUp() {
                 required
             />
         </div>
-        <div>
+        <div className="login-inputs1">
             <label>Create Password</label>
             <input
                 placeholder='Enter password'
@@ -77,9 +82,12 @@ function SignUp() {
                 id='password'
                 onChange={handleFieldChange}
                 required
+                style={{
+                    border: '1px solid red !important'
+                }}
             />
         </div>
-        <div>
+        <div className="login-inputs">
             <label>Confirm Password</label>
             <input
                 placeholder='Enter password again'
@@ -93,10 +101,18 @@ function SignUp() {
         <input
             type='submit'
             value='Register'
+            className='btn btn-dark cta'
         />
 
-        <Link to='/'>Already have an account, <span>Login</span></Link>
+        <div className='link-pages'>
+            <p>Already have an account, 
+                <span>
+                    <Link to='/'>Login</Link>
+                </span>
+            </p>
+        </div>
     </form>
+      </div>
   )
 }
 
