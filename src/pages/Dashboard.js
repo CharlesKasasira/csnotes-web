@@ -3,7 +3,7 @@ import '../styles/dashboard.css'
 function Dashboard() {
   return (
     <>
-    <div>Welcome to the Dashboard</div>
+    <div>Welcome Charles</div>
 
     <div className='status'>
       <div className='status-item'>
@@ -27,6 +27,10 @@ function Dashboard() {
         <span>CSC 1100</span>
         <h4>Structure and Object-Oriented Programming</h4>
       </div>
+    </div>
+
+    <div className='graph'>
+      The Graph goes times.
     </div>
     </>
   )
