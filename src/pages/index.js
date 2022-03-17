@@ -6,11 +6,13 @@ import Dashboard from "./Dashboard";
 import PastPapers from "./PastPapers";
 import Profile from "./Profile";
 import Course from "./Course";
+import CoursePastPapers from "./CoursePastPapers";
 
 
 export {
     Login,
     SignUp, NotFound,
     ForgotPassword, Dashboard,
-    PastPapers, Profile, Course
+    PastPapers, Profile, Course,
+    CoursePastPapers
 }
