@@ -1,0 +1,13 @@
+.status{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.status-item{
+    width: 12rem;
+    height: 12rem;
+    border: 1px solid red;
+    margin: 20px 0;
+}
