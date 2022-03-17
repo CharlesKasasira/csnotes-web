@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { MdVisibility } from 'react-icons/md'
 import { MdVisibilityOff } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -7,6 +7,10 @@ import { auth } from '../helpers/firebaseConfig'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../hooks/useForm'
 
+import { Loader } from '../components'
+
+import { useAuthState } from 'react-firebase-hooks/auth'
+
 import '../styles/login.css'
 
 function Login() {
@@ -14,6 +18,15 @@ function Login() {
     const [ isVisible, setIsVisible ] = useState(false)
 
     const navigate = useNavigate()
+
+    const [person, loading, error] = useAuthState(auth)
+
+    useEffect(() => {
+      if(loading) return <Loader />
+      if(person) return navigate('/dashboard')
+    }, [person, loading])
+
+    
 
     const [ user, handleFieldChange ] = useForm({
       email: '',
@@ -24,9 +37,6 @@ function Login() {
       event.preventDefault()
 
       signInWithEmailAndPassword(auth, user.email, user.password)
-        .then(() => {
-          navigate('/dashboard')
-        })
         .catch(err => console.log(err.message))
     }
 
