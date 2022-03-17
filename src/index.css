@@ -4,9 +4,12 @@
 }
 
 .course-unit{
-    border: 1px solid red;
     padding: 20px 10px;
 } /* PastPaper */
+
+.course-unit a{
+    color: #000;
+}
 
 
 a{
