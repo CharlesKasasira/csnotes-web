@@ -5,7 +5,7 @@ const courseUnit = [
     {
         code: 'CSC 1109',
         name: 'Digital Innovation and Computational Thinking',
-        link: '/digital-innovation-and-computational Thinking/past-papers'
+        link: '/digital-innovation-and-computational-thinking/past-papers'
     },
     {
         code: 'CSC 1100',
