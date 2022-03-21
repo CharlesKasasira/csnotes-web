@@ -7,6 +7,9 @@ import '../styles/login.css'
 
 import { addDoc, collection } from 'firebase/firestore'
 
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 function SignUp() {
 
@@ -45,15 +48,27 @@ function SignUp() {
                         lastName: user.lastName
                     })
                 })
-                .catch(err => console.log(err.message))
+                .then( () => {
+                    toast.success('Successfully Registered', {position: "top-center"});
+                    document.signForm.reset()
+                })
+                .catch(error => {
+                    const errors = {
+                        "auth/email-already-in-use": `Email is already in user.`,
+                        "auth/weak-password": "Password should be atleast 8 characters",
+                        "auth/network-request-failed": "something is wrong, check your network connection"
+                      }
+                    toast.error(`${errors[error.code]}`, {position: "top-center"})
+                })
         }
     }
   return (
       <div className="auth-wrapper">
+          <ToastContainer />
           <div className='group-j'>
             <h1>J</h1>
         </div>
-            <form onSubmit={handleSignUp} name='signUp'>
+            <form onSubmit={handleSignUp} name='signForm'>
         <h5>Sign Up</h5>
         <div className="login-inputs">
             <label>First Name</label>
