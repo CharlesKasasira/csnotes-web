@@ -1,7 +1,33 @@
-.container {
+.top-container {
+    display: grid;
     width: 100vw;
-    margin: 0;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
+
+
+.side-bar{
+    display: grid; 
+    position: fixed;
+    grid-template-rows: 11vh 80vh 9vh;
+    width: 260px;
+    border-right: 1px solid #c6c7c8;
+    align-items: stretch;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.content{
+    margin-left: 280px;
+    width: calc(100vw - 300px);
+}
+
+
+
 
 .course-unit{
     padding: 20px 10px;

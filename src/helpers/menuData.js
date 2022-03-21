@@ -1,6 +1,7 @@
 import { AiFillHome } from 'react-icons/ai'
 import { GiPapers } from 'react-icons/gi'
 import { CgProfile } from 'react-icons/cg'
+import { IoSchoolSharp } from 'react-icons/io5'
 
 
 const menuItem = [
@@ -11,7 +12,7 @@ const menuItem = [
     },
     {
         label: 'Course',
-        icon: <AiFillHome />,
+        icon: <IoSchoolSharp />,
         link: '/course'
     },
     {

@@ -7,6 +7,7 @@ import PastPapers from "./PastPapers";
 import Profile from "./Profile";
 import Course from "./Course";
 import CoursePastPapers from "./CoursePastPapers";
+import CourseSummary from './CourseSummary'
 
 
 export {
@@ -14,5 +15,5 @@ export {
     SignUp, NotFound,
     ForgotPassword, Dashboard,
     PastPapers, Profile, Course,
-    CoursePastPapers
+    CoursePastPapers, CourseSummary
 }

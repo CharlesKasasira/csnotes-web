@@ -2,10 +2,16 @@ import '../styles/dashboard.css'
 
 import { courseUnit } from '../helpers/courseUnits'
 
+import { useOutletContext } from 'react-router-dom'
+import { titleCase } from '../helpers/utillities'
+
+
 function Dashboard() {
+  const { meta } = useOutletContext()
+
   return (
     <>
-    <div>Welcome Charles</div>
+    <div>Welcome {titleCase(meta.firstName)}</div>
 
     <div className='status'>
       {courseUnit.map(unit => (

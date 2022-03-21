@@ -10,7 +10,7 @@ function PastPapers() {
 
       {courseUnit.map(unit => (
         <div className='course-unit'>
-          <Link to={unit.link}>
+          <Link to={`${unit.link}/past-papers`}>
             <span>{unit.code}</span>
             <h5>{unit.name}</h5>
           </Link>

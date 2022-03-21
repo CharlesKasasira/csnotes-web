@@ -1,13 +1,18 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { auth } from '../helpers/firebaseConfig'
+import { auth, db } from '../helpers/firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useForm } from '../hooks/useForm'
 import '../styles/login.css'
 
+import { addDoc, collection } from 'firebase/firestore'
+
+
 function SignUp() {
 
     const [ error, setError ] = useState('')
+
+    const metaCollection = collection(db, 'usermeta')
 
     const [ user, handleFieldChange ] = useForm({
         firstName: '',
@@ -33,7 +38,13 @@ function SignUp() {
         setError('')
         if(validatePassword()){
             createUserWithEmailAndPassword(auth, user.email, user.password)
-                .then((res) => console.log(res.user))
+                .then( async (cred) => {
+                    await addDoc(metaCollection, {
+                        uid: cred.user.uid,
+                        firstName: user.firstName,
+                        lastName: user.lastName
+                    })
+                })
                 .catch(err => console.log(err.message))
         }
     }

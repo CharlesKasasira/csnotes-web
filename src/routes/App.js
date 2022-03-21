@@ -1,4 +1,4 @@
-import { Login, SignUp, NotFound, ForgotPassword, Dashboard, Profile, PastPapers, Course, CoursePastPapers } from "../pages";
+import { Login, SignUp, NotFound, ForgotPassword, Dashboard, Profile, PastPapers, Course, CoursePastPapers, CourseSummary } from "../pages";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from '../auth/AuthContext'
 
@@ -18,6 +18,7 @@ function App() {
             <Route path="/dashboard" exact element={<Dashboard />} />
             <Route path="/course" exact element={<Course />} />
             <Route path="/:id/past-papers" exact element={<CoursePastPapers />} />
+            <Route path="/:id/summary" exact element={<CourseSummary />} />
             <Route path="/profile" exact element={<Profile />} />
             <Route path="/past-papers" exact element={<PastPapers />} />
           </Route>

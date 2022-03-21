@@ -4,11 +4,13 @@ import '../styles/navbar.css'
 
 import { auth } from '../helpers/firebaseConfig'
 import { signOut } from 'firebase/auth'
+import { titleCase } from '../helpers/utillities'
 
-function Navbar() {
+function Navbar({meta}) {
+
   return (
     <div className='navbar-style'>
-        <p style={{marginBottom: '0'}}>Charles Kasasira</p>
+        <p style={{marginBottom: '0'}}>{titleCase(meta.firstName)} {titleCase(meta.lastName)}</p>
         <p style={{marginBottom: '0'}}
           onClick={() => signOut(auth)}
           className='logout-icon'

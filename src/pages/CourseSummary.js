@@ -12,12 +12,14 @@ function CoursePastPapers() {
 
     function onDocumentLoadSuccess({ numOfPages }) {
       setNumOfPages(numOfPages)
-      console.log('success')
+      setPageNumber(1)
     }
+
+    console.log(numOfPages)
     
   return (
     <>
-      <h3>{id.replaceAll('-', ' ').toUpperCase()} PAST PAPERS</h3>
+      <h3>{id.replaceAll('-', ' ').toUpperCase()} SUMMARY NOTES</h3>
       <div
         style={{
           width: '100%',
@@ -29,13 +31,27 @@ function CoursePastPapers() {
         }}
       >
         <Document 
-        file="/past/lit21.pdf"
+        file="/DICT(summary).pdf"
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page style={{width: '100%'}} pageNumber={pageNumber} />
       </Document>
       <p>
-        {pageNumber} of {numOfPages}
+        <button
+          onClick={() => {
+            if(pageNumber > 1){
+              setPageNumber(pageNumber - 1)
+            }
+          }}
+        >
+          Previous
+        </button>
+        Page {pageNumber} of {numOfPages}
+        <button
+          onClick={() => {
+            setPageNumber(pageNumber + 1)
+          }}
+        >Next</button>
       </p>
       </div>
       
