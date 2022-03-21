@@ -1,11 +1,11 @@
-import '../styles/dashboard.css'
-
-import { courseUnit } from '../helpers/courseUnits'
+import { courseUnit } from '../../helpers/courseUnits'
 
 import { useOutletContext } from 'react-router-dom'
-import { titleCase } from '../helpers/utillities'
+import { titleCase } from '../../helpers/utillities'
 
-import CourseCard from '../components/CourseCard/CourseCard'
+import CourseCard from '../../components/CourseCard/CourseCard'
+
+import './style.css'
 
 function Dashboard() {
   const { meta } = useOutletContext()
@@ -19,12 +19,6 @@ function Dashboard() {
         <CourseCard code={unit.code} name={unit.name}/>
       ))}
     </div>
-
-    {/* <div className='status-item'>
-        <span>{unit.code}</span>
-        <h4>{unit.name}</h4>
-
-      </div> */}
 
     <div className='graph'>
       The Graph goes times.

@@ -2,6 +2,12 @@ import { useParams } from "react-router-dom"
 import { useState } from 'react'
 import { Document, pdfjs, Page } from "react-pdf";
 import './style.css'
+
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa'
+
+
+
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function CoursePastPapers() {
@@ -10,14 +16,16 @@ function CoursePastPapers() {
     const [ numOfPages, setNumOfPages ] = useState(null)
     const [ pageNumber, setPageNumber ] = useState(1)
 
-    function onDocumentLoadSuccess({ numOfPages }) {
-      setNumOfPages(numOfPages)
-      console.log('success')
+    function onDocumentLoadSuccess({ numPages }) {
+      setNumOfPages(numPages)
+      setPageNumber(1)
     }
+
+    console.log(numOfPages)
     
   return (
     <>
-      <h3>{id.replaceAll('-', ' ').toUpperCase()} PAST PAPERS</h3>
+      <h3>{id.replaceAll('-', ' ').toUpperCase()} SUMMARY NOTES</h3>
       <div
         style={{
           width: '100%',
@@ -35,7 +43,28 @@ function CoursePastPapers() {
         <Page style={{width: '100%'}} pageNumber={pageNumber} />
       </Document>
       <p>
-        {pageNumber} of {numOfPages}
+        <button
+          onClick={() => {
+            if(pageNumber > 1){
+              setPageNumber(pageNumber - 1)
+            }
+          }}
+
+          className='next-cta'
+
+        >
+          <FaAngleDoubleLeft />
+        </button>
+        Page {pageNumber} of {numOfPages}
+        <button
+          onClick={() => {
+            if(pageNumber < numOfPages){
+              setPageNumber(pageNumber + 1)
+            }
+            
+          }}
+          className='next-cta'
+        ><FaAngleDoubleRight /></button>
       </p>
       </div>
       

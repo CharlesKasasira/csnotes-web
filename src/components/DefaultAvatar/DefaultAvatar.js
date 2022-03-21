@@ -4,7 +4,7 @@ import './style.css'
 function DefaultAvatar({ firstName, lastName }) {
   let fullNameInitials;
   if (firstName) {
-    fullNameInitials = firstName.split('')[0] + lastName.split('')[0]
+    fullNameInitials = firstName.split('')[0].toUpperCase() + lastName.split('')[0].toUpperCase()
   }
 
   return (
