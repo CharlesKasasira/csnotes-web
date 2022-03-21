@@ -28,7 +28,7 @@ const PrivateRoute = () => {
             </div>
             <div className='content'>
                 <Navbar meta={meta} />
-                <Outlet context={{ meta }} />
+                <Outlet context={{ meta, person }} />
             </div>
         </div>
     ) : 

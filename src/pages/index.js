@@ -4,7 +4,7 @@ import NotFound from "./NotFound";
 import ForgotPassword from './ForgotPassword'
 import Dashboard from "./Dashboard";
 import PastPapers from "./PastPapers";
-import Profile from "./Profile";
+import Profile from "./Profile/Profile";
 import Course from "./Course";
 import CoursePastPapers from "./CoursePastPapers";
 import CourseSummary from './CourseSummary'
