@@ -1,0 +1,12 @@
+.avatarBG {
+    background-color: #000;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+  }

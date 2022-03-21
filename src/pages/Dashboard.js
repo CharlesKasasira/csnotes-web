@@ -5,6 +5,7 @@ import { courseUnit } from '../helpers/courseUnits'
 import { useOutletContext } from 'react-router-dom'
 import { titleCase } from '../helpers/utillities'
 
+import CourseCard from '../components/CourseCard/CourseCard'
 
 function Dashboard() {
   const { meta } = useOutletContext()
@@ -15,13 +16,15 @@ function Dashboard() {
 
     <div className='status'>
       {courseUnit.map(unit => (
-        <div className='status-item'>
+        <CourseCard code={unit.code} name={unit.name}/>
+      ))}
+    </div>
+
+    {/* <div className='status-item'>
         <span>{unit.code}</span>
         <h4>{unit.name}</h4>
 
-      </div>
-      ))}
-    </div>
+      </div> */}
 
     <div className='graph'>
       The Graph goes times.

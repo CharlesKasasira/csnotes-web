@@ -41,3 +41,8 @@
 a{
     text-decoration: none;
 }
+
+.status{
+    border: 1px solid red;
+    overflow-x: scroll;
+}
