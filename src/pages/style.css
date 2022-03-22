@@ -1,4 +1,9 @@
 .react-pdf__Document{
-    border: 1px solid red;
+    /* border: 3px solid #000; */
+    border-radius: 5px;
     /* width: 100%; */
+}
+
+.react-pdf__Page__canvas{
+    border: 3px solid #000;
 }

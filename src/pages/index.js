@@ -7,7 +7,7 @@ import PastPapers from "./PastPapers";
 import Profile from "./Profile/Profile";
 import Course from "./Course";
 import CoursePastPapers from "./CoursePastPapers/CoursePastPapers";
-import CourseSummary from './CourseSummary'
+import CourseSummary from './CourseSummary/CourseSummary'
 
 
 export {
