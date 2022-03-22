@@ -5,6 +5,8 @@ import { titleCase } from '../../helpers/utillities'
 
 import CourseCard from '../../components/CourseCard/CourseCard'
 
+import { WidgetLg, WidgetSm } from '../../components'
+
 import './style.css'
 
 function Dashboard() {
@@ -21,7 +23,8 @@ function Dashboard() {
     </div>
 
     <div className='graph'>
-      The Graph goes times.
+      <WidgetSm />
+      <WidgetLg />
     </div>
     </>
   )
