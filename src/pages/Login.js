@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../helpers/firebaseConfig'
 import { useNavigate } from 'react-router-dom'
-import { useForm } from '../hooks/useForm'
+import { useForm } from '../hooks'
 
 import { Loader } from '../components'
 
@@ -44,8 +44,8 @@ function Login() {
 
   return (
     <div className="auth-wrapper">
-      <div className='group-j'>
-        <h1>J</h1>
+      <div className='bg-black w-12 h-12 mb-5 rounded-full flex justify-center items-center'>
+        <h1 className='text-white text-bold'>J</h1>
       </div>
     <form onSubmit={handleLogin}>
       <p>Enter Email and Password to sign in</p>
@@ -53,12 +53,13 @@ function Login() {
         <label htmlFor="email">Email</label>
         <input type="email" placeholder="Enter email" name="email" id="email"
           onChange={handleFieldChange}
+          className='border-black'
           required />
       </div>
 
       <div className="login-inputs">
         <label htmlFor="password">Password</label>
-        <div id="passwordField">
+        <div id="passwordField" >
           <input
             type={password}
             autoComplete="off"
@@ -92,8 +93,9 @@ function Login() {
       <div id="submit_login">
         <input
           type="submit"
-          className="btn btn-dark cta"
+          // className="btn btn-dark cta"
           value="Login"
+          className='bg-black hover:bg-blue-400  items-center text-white font-medium px-3 py-2 shadow-sm rounded-md'
         />
       </div>
       <div className='link-pages'>

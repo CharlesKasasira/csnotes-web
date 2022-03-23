@@ -11,7 +11,7 @@ function Profile() {
   const { meta, person } = useOutletContext()
 
   return (
-    <>
+    <div>
       <h4>Account Settings</h4>
 
       <div className='editContainer'>
@@ -28,7 +28,7 @@ function Profile() {
       <p>First Name :  <b>{titleCase(meta.firstName)}</b></p>
       <p>Last Name :  <b>{titleCase(meta.lastName)}</b></p>
       <p>Email :  <b>{titleCase(person.email)}</b></p>
-    </>
+    </div>
   )
 }
 

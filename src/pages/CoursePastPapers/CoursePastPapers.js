@@ -37,7 +37,7 @@ function CoursePastPapers() {
         }}
       >
         <Document 
-        file="/past/lit21.pdf"
+        file={`/past/${id}.pdf`}
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page style={{width: '100%'}} pageNumber={pageNumber} />

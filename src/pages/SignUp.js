@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { auth, db } from '../helpers/firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { useForm } from '../hooks/useForm'
+import { useForm } from '../hooks'
 import '../styles/login.css'
 
 import { addDoc, collection } from 'firebase/firestore'

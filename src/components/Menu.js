@@ -1,8 +1,4 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { AiFillHome } from 'react-icons/ai'
-import { GiPapers } from 'react-icons/gi'
-import { CgProfile } from 'react-icons/cg'
 
 import { menuItem } from '../helpers/menuData'
 
