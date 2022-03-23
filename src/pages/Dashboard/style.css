@@ -10,7 +10,6 @@
     grid-template-columns: repeat(6, 1fr);
     align-items: center;
     gap: .8rem;
-    justify-content: center;
 }
 
 

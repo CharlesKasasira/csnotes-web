@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 
 function MobileMenu({meta}) {
 
-  const [ hide, setHide ] = useState(false)
+  const [ hide, setHide ] = useState(true)
   
   return (
     <div >
