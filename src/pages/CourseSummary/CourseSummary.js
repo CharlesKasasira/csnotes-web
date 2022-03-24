@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom"
 import { useState } from 'react'
 import { Document, pdfjs, Page } from "react-pdf";
-import './CourseSummary.css'
-import '../style.css'
+// import './CourseSummary.css'
+// import '../style.css'
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa'
 import { Loader } from "../../components";
+
+import useMediaQuery from '../../hooks/useMediaQuery'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -26,20 +28,13 @@ function CoursePastPapers() {
       setPageNumber(1)
     }
 
-    console.log(loading)
+    const matches = useMediaQuery('(min-width: 768px)')
     
   return (
     <>
-      <h3>{id.replaceAll('-', ' ').toUpperCase()} SUMMARY NOTES</h3>
+      <h3 className="font-bold uppercase">{id.replaceAll('-', ' ')} summary notes</h3>
       <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column'
-        }}
+        className='flex flex-col items-center justify-center sm:w-screen md:w-full lg:w-full'
       >
         
       <Document 
@@ -48,8 +43,9 @@ function CoursePastPapers() {
         error={'Summary Not Found'}
         onLoadProgress={() => (<p>he</p>)}
         loading={<Loader />}
+        className='sm:w-11/12 lg:w-8/12 md:w-full flex justify-center items-center'
       >
-        <Page pageNumber={pageNumber} />
+        <Page pageNumber={pageNumber} className='border-2 border-black w-full flex justify-center overflow-hidden' width={!matches ? '430' : '700'}/>
       </Document>
 
 

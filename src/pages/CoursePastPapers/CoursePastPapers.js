@@ -5,6 +5,8 @@ import './style.css'
 
 import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa'
 
+import useMediaQuery from '../../hooks/useMediaQuery'
+
 
 
 
@@ -21,51 +23,45 @@ function CoursePastPapers() {
       setPageNumber(1)
     }
 
-    console.log(numOfPages)
+    const matches = useMediaQuery('(min-width: 768px)')
     
   return (
     <>
-      <h3>{id.replaceAll('-', ' ').toUpperCase()} SUMMARY NOTES</h3>
+      <h3 className="font-bold uppercase">{id.replaceAll('-', ' ')} past papers</h3>
       <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column'
-        }}
+        className='flex flex-col items-center justify-center sm:w-screen md:w-full lg:w-full'
       >
-        <Document 
-        file={`/past/${id}.pdf`}
-        onLoadSuccess={onDocumentLoadSuccess}
-      >
-        <Page style={{width: '100%'}} pageNumber={pageNumber} />
-      </Document>
-      <p>
-        <button
-          onClick={() => {
-            if(pageNumber > 1){
-              setPageNumber(pageNumber - 1)
-            }
-          }}
+          <Document 
+            file={`/past/${id}.pdf`}
+            onLoadSuccess={onDocumentLoadSuccess}
+            className='sm:w-11/12 lg:w-8/12 md:w-full flex justify-center items-center'
+          >
+            <Page pageNumber={pageNumber} className='border-2 border-black w-full flex justify-center overflow-hidden' width={!matches ? '430' : '600'}/>
+          </Document>
+          <p>
+            <button
+              onClick={() => {
+                if(pageNumber > 1){
+                  setPageNumber(pageNumber - 1)
+                }
+              }}
 
-          className='next-cta'
+              className='next-cta'
 
-        >
-          <FaAngleDoubleLeft />
-        </button>
-        Page {pageNumber} of {numOfPages}
-        <button
-          onClick={() => {
-            if(pageNumber < numOfPages){
-              setPageNumber(pageNumber + 1)
-            }
-            
-          }}
-          className='next-cta'
-        ><FaAngleDoubleRight /></button>
-      </p>
+            >
+              <FaAngleDoubleLeft />
+            </button>
+            Page {pageNumber} of {numOfPages}
+            <button
+              onClick={() => {
+                if(pageNumber < numOfPages){
+                  setPageNumber(pageNumber + 1)
+                }
+                
+              }}
+              className='next-cta'
+            ><FaAngleDoubleRight /></button>
+          </p>
       </div>
       
     </>

@@ -48,7 +48,7 @@ const PrivateRoute = () => {
                 <MobileMenu meta={meta} />
                     </div>
                 
-                <div className='content-mobile' style={{marginTop: '65px'}}>
+                <div className='flex flex-col overflow-x-hidden h-screen px-2' style={{marginTop: '65px'}}>
                     <Outlet context={{ meta, person }} />
                 </div>
                 </div>

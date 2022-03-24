@@ -29,10 +29,6 @@ function MobileMenu({meta}) {
        }}
      >x</span>
        }
-     
-        <h1
-          className='text-base font-bold'
-        >Group J</h1>
         <h1>{meta.firstName}</h1>
      </div>
         
