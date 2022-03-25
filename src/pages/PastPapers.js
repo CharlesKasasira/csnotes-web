@@ -5,18 +5,18 @@ import { courseUnit } from '../helpers/courseUnits'
 
 function PastPapers() {
   return (
-    <>
-      <h3>Choose Course Unit</h3>
+    <div className='bg-white w-full h-full p-4 shadow-md rounded-md'>
+      <h3 className='font-bold'>Choose Course Unit</h3>
 
       {courseUnit.map(unit => (
         <div className='course-unit'>
           <Link to={`${unit.link}/past-papers`}>
-            <span>{unit.code}</span>
+            <span className='text-gray-500'>{unit.code}</span>
             <h5>{unit.name}</h5>
           </Link>
         </div>
       ))}
-    </>
+    </div>
 
   )
 }

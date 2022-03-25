@@ -13,13 +13,6 @@
   .featuredItem:first-child{
       margin-left: 5px;
   }
-
-  
-  .featuredMoneyContainer{
-      margin: 4px 0px;
-      display: flex;
-      align-items: center;
-  }
   
   .featuredMoney{
       font-size: 1.2rem;

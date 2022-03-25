@@ -5,7 +5,7 @@ import { courseUnit } from '../helpers/courseUnits'
 
 function Course() {
   return (
-    <>
+    <div className='bg-white w-full h-full p-4 shadow-md rounded-md'>
       <h3>Choose Course Unit</h3>
 
       {courseUnit.map(unit => (
@@ -16,7 +16,7 @@ function Course() {
           </Link>
         </div>
       ))}
-    </>
+    </div>
 
   )
 }

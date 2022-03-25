@@ -2,7 +2,7 @@ import { courseUnit } from '../../helpers/courseUnits'
 import { useOutletContext } from 'react-router-dom'
 import { titleCase } from '../../helpers/utillities'
 import CourseCard from '../../components/CourseCard/CourseCard'
-import { TimeTable, Forum } from '../../components'
+import { TimeTable } from '../../components'
 
 import './style.css'
 
@@ -19,10 +19,7 @@ function Dashboard() {
       ))}
     </div>
 
-    <div className='graph'>
-      {/* <Forum /> */}
       <TimeTable />
-    </div>
     </>
   )
 }
