@@ -1,7 +1,7 @@
 import { AiFillHome } from 'react-icons/ai'
 import { GiPapers } from 'react-icons/gi'
-import { CgProfile } from 'react-icons/cg'
 import { IoSchoolSharp } from 'react-icons/io5'
+import { MdForum, MdSettings } from 'react-icons/md'
 
 
 const menuItem = [
@@ -21,9 +21,14 @@ const menuItem = [
         link: '/past-papers'
     },
     {
-        label: 'Profile',
-        icon: <CgProfile />,
-        link: '/profile'
+        label: 'Forum',
+        icon: <MdForum />,
+        link: '/forum'
+    },
+    {
+        label: 'Settings',
+        icon: <MdSettings />,
+        link: '/settings'
     }
 ]
 

@@ -1,14 +1,16 @@
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
-export default function CourseCard({code, name}) {
+export default function CourseCard({code, name, link}) {
+  const navigate = useNavigate()
   return (
-    <div className="featured">
-      <div className="featuredItem">
-        <span className="featuredTitle">{code}</span>
+    <div className="flex justify-between">
+      <div className="featuredItem"
+        onClick={() => navigate(`${link}/summary`, { replace: false})}
+      >
+        <span className="bg-gray-800 text-white px-3 py-1 my-1 rounded-lg">{code}</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">{name}</span>
-          <span className="featuredMoneyRate">
-          </span>
         </div>
       </div>
     </div>

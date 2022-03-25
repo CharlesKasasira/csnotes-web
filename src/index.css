@@ -11,6 +11,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background-color: #f1f1f1;
+}
+
 
 .top-container {
     display: grid;
@@ -36,8 +40,8 @@
 }
 
 .content{
-    margin-left: 280px;
-    width: calc(100vw - 300px);
+    margin-left: 260px;
+    width: calc(100vw - 260px);
 }
 
 

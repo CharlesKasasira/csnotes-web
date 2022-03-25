@@ -11,12 +11,8 @@ import { useMediaQuery } from '../hooks'
 const PrivateRoute = () => {
 
     const [ person, loading, error ] = useAuthState(auth)
-
     const [ meta, setMeta ] = useState([])
-
     const matches = useMediaQuery('(min-width: 768px)')
-
-    console.log(matches)
 
   useEffect(async () => {
     const userCollection = collection(db, 'usermeta')
@@ -37,7 +33,9 @@ const PrivateRoute = () => {
                 </div>
                 <div className='content'>
                     <Navbar meta={meta} />
-                    <Outlet context={{ meta, person }} />
+                    <div className='mx-4 my-4 h-full'>
+                        <Outlet context={{ meta, person }} />
+                    </div>
                 </div>
             </div>
         :

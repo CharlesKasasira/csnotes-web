@@ -8,6 +8,7 @@ import Profile from "./Profile/Profile";
 import Course from "./Course";
 import CoursePastPapers from "./CoursePastPapers/CoursePastPapers";
 import CourseSummary from './CourseSummary/CourseSummary'
+import Forum from "./Forum/Forum";
 
 
 export {
@@ -15,5 +16,6 @@ export {
     SignUp, NotFound,
     ForgotPassword, Dashboard,
     PastPapers, Profile, Course,
-    CoursePastPapers, CourseSummary
+    CoursePastPapers, CourseSummary,
+    Forum
 }

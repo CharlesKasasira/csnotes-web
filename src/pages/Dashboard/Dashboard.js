@@ -1,11 +1,8 @@
 import { courseUnit } from '../../helpers/courseUnits'
-
 import { useOutletContext } from 'react-router-dom'
 import { titleCase } from '../../helpers/utillities'
-
 import CourseCard from '../../components/CourseCard/CourseCard'
-
-import { WidgetLg, WidgetSm } from '../../components'
+import { TimeTable, Forum } from '../../components'
 
 import './style.css'
 
@@ -14,17 +11,17 @@ function Dashboard() {
 
   return (
     <>
-    <div>Welcome {titleCase(meta.firstName)}</div>
+    <div className='uppercase font-bold'>Welcome {titleCase(meta.firstName)},</div>
 
     <div className='status'>
       {courseUnit.map(unit => (
-        <CourseCard code={unit.code} name={unit.name}/>
+        <CourseCard code={unit.code} name={unit.name} link={unit.link}/>
       ))}
     </div>
 
     <div className='graph'>
-      <WidgetSm />
-      <WidgetLg />
+      {/* <Forum /> */}
+      <TimeTable />
     </div>
     </>
   )

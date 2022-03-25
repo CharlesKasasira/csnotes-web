@@ -3,9 +3,7 @@
     overflow-x: scroll;
     margin-bottom: 20px;
     padding: 20px;
-}
-
-.status{
+    padding-left: 0;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     align-items: center;
@@ -15,9 +13,13 @@
 
 .graph{
     width: 100%;
-    height: 25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    outline: 1px solid red;
+}
+
+html{
+    scrollbar-width: thick;
+    scrollbar-color: red yellow;
 }
