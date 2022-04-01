@@ -85,7 +85,7 @@ function SignUp() {
                 
                 <input
                 type="submit"
-                value="Login"
+                value="Register"
                 className='w-full mb-2 inline-flex items-center justify-center bg-gray-800 text-white text-base font-medium px-4 py-2 shadow-sm rounded-md hover:bg-gray-700 uppercase'
                 />
                 <div className=' flex justify-between gap-2 text-sm text-gray-800 w-full'>
