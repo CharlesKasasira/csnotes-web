@@ -33,7 +33,7 @@ export default function Login() {
     <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleLogin(values)}>
       {({values, errors, touched, handleChange, handleBlur}) => {
         return (
-          <Form className='w-8/12 p-10 sm:w-8/12 md:w-5/12 lg:w-4/12 bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg'>
+          <Form className='bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg lg:p-10 md:p-8 p-8'>
         <h2 className='block text-center font-bold text-2xl'>Login to your account</h2>
         <EmailTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
         <PasswordTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />

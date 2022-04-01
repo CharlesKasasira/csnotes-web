@@ -21,8 +21,8 @@ function Navbar({meta}) {
           onClick={() => setShow(!show)}
           ref={navRef}
         >
-          <DefaultAvatar firstName={meta.firstName} lastName={meta.lastName}/>
           <p className='mb-0 cursor-pointer'>{titleCase(meta.firstName)} {titleCase(meta.lastName)}</p>
+          <DefaultAvatar firstName={meta.firstName} lastName={meta.lastName}/>
             <div className={show ? 'absolute px-3 py-3 shadow-sm w-full bg-white top-12 z-10' : 'hidden'}>
             <p style={{marginBottom: '0'}}
               onClick={() => navigate('/settings')}
