@@ -50,7 +50,7 @@ function SignUp() {
             createUserWithEmailAndPassword(auth, values.email, values.password)
                 .then( async (cred) => {
                     await addDoc(metaCollection, {
-                        uid: cred.values.uid,
+                        uid: cred.user.uid,
                         firstName: values.firstName,
                         lastName: values.lastName
                     })
@@ -70,9 +70,9 @@ function SignUp() {
         }
     }
 
-    console.log(user)
   return (
       <div className=" inline-flex justify-center items-center w-screen h-screen bg-gray-50">
+          <ToastContainer />
           <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleSignUp(values)}>
             {({values, errors, touched, handleChange, handleBlur}) => {
                 return (
