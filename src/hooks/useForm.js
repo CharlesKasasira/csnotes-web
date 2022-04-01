@@ -1,15 +1,21 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
-export default function useForm (initialValues){
-    const [fields, setValues ] = useState(initialValues)
-    return [
-        fields,
-        event => {
-            const {id, value} = event.target
-            setValues({
-                ...fields,
-                [id]:value
-            })
-        }
-    ]
+export const useForm = (initialValues, onSubmit) => {
+    const [ formData, setFormData ] = useState(initialValues)
+
+    const handleFormChange = (e) => {
+        setFormData(
+            { ...formData,
+                [e.target.name]: e.target.value
+            }
+        )
+    }
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+        onSubmit?.(formData)
+    }
+
+    return [ formData, handleFormChange, handleFormSubmit];
 }
+

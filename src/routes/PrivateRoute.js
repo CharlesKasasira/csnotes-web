@@ -1,11 +1,9 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { Loader, Menu, Navbar, MobileMenu } from '../components'
 import { useAuthState } from 'react-firebase-hooks/auth'
-
 import { auth, db } from '../helpers/firebaseConfig'
 import { collection, getDocs } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-
 import { useMediaQuery } from '../hooks'
 
 const PrivateRoute = () => {

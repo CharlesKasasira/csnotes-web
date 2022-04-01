@@ -2,29 +2,18 @@ import { useState, useRef } from 'react'
 import { IoMdPower } from 'react-icons/io'
 import { MdSettings } from 'react-icons/md'
 import '../styles/navbar.css'
-
 import { useNavigate } from 'react-router-dom'
-
 import { auth } from '../helpers/firebaseConfig'
 import { signOut } from 'firebase/auth'
 import { titleCase } from '../helpers/utillities'
-
 import DefaultAvatar from './DefaultAvatar/DefaultAvatar'
-
 import { useClickOutside } from '../hooks'
 
 function Navbar({meta}) {
-
   const [show, setShow] = useState(false)
   const navigate = useNavigate()
-
   const navRef = useRef()
-
   useClickOutside(navRef, () => setShow(false))
-
-  // console.log(show)
-
-
 
   return (
     <div className='navbar-style'>
@@ -34,8 +23,6 @@ function Navbar({meta}) {
         >
           <DefaultAvatar firstName={meta.firstName} lastName={meta.lastName}/>
           <p className='mb-0 cursor-pointer'>{titleCase(meta.firstName)} {titleCase(meta.lastName)}</p>
-
-
             <div className={show ? 'absolute px-3 py-3 shadow-sm w-full bg-white top-12 z-10' : 'hidden'}>
             <p style={{marginBottom: '0'}}
               onClick={() => navigate('/settings')}
@@ -55,12 +42,8 @@ function Navbar({meta}) {
               </span>
               Logout
             </p>
-
-          
         </div>
         </div>
-
-        
     </div>
   )
 }

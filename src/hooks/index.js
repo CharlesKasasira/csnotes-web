@@ -1,4 +1,4 @@
-import useForm from "./useForm";
+import { useForm } from "./useForm";
 import useMediaQuery from "./useMediaQuery";
 import useClickOutside from "./useClickOutside";
 

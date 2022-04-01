@@ -2,13 +2,21 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { auth, db } from '../helpers/firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { useForm } from '../hooks'
-import '../styles/login.css'
+
 
 import { addDoc, collection } from 'firebase/firestore'
 
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+
+import { useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from '../hooks'
+import { handleLogin } from '../helpers/utillities'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { Formik, Form } from 'formik'
+import { validationSchema } from '../helpers/utillities'
+import { FirstName, LastName, Loader, PasswordTextField, EmailTextField, ConfirmPassword } from '../components'
 
 
 function SignUp() {
@@ -63,81 +71,30 @@ function SignUp() {
         }
     }
   return (
-      <div className="auth-wrapper">
-          <ToastContainer />
-          <div className='group-j'>
-            <h1>J</h1>
-        </div>
-            <form onSubmit={handleSignUp} name='signForm'>
-        <h5>Sign Up</h5>
-        <div className="login-inputs">
-            <label>First Name</label>
-            <input
-                placeholder='Enter First Name'
-                type='text'
-                id='firstName'
-                onChange={handleFieldChange}
-                required
-            />
-        </div>
-        <div className="login-inputs">
-            <label>Last Name</label>
-            <input
-                placeholder='Enter Last Name'
-                type='text'
-                id='lastName'
-                onChange={handleFieldChange}
-                required
-            />
-        </div>
-        <div className="login-inputs">
-            <label>Email</label>
-            <input
-                placeholder='Enter E-mail'
-                type='email'
-                id='email'
-                onChange={handleFieldChange}
-                required
-            />
-        </div>
-        <div className="login-inputs1">
-            <label>Create Password</label>
-            <input
-                placeholder='Enter password'
-                type='password'
-                id='password'
-                onChange={handleFieldChange}
-                required
-                style={{
-                    border: '1px solid red !important'
-                }}
-            />
-        </div>
-        <div className="login-inputs">
-            <label>Confirm Password</label>
-            <input
-                placeholder='Enter password again'
-                type='password'
-                id='confirmPassword'
-                onChange={handleFieldChange}
-                required
-            />
-            <p>{error && error}</p>
-        </div>
-        <input
-            type='submit'
-            value='Register'
-            className='btn btn-dark cta'
-        />
-
-        <div className='link-pages'>
-            <p>Already have an account, 
-                <span>
-                    <Link to='/'>Login</Link>
-                </span>
-            </p>
-        </div>
-    </form>
+      <div className=" inline-flex justify-center items-center w-screen h-screen bg-gray-50">
+          <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleLogin(values)}>
+            {({values, errors, touched, handleChange, handleBlur}) => {
+                return (
+                <Form className='w-8/12 p-10 sm:w-8/12 md:w-5/12 lg:w-4/12 bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg'>
+                <h2 className='block text-center font-bold text-2xl'>Register</h2>
+                <FirstName errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
+                <LastName errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
+                <EmailTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
+                <PasswordTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
+                <ConfirmPassword errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
+                
+                <input
+                type="submit"
+                value="Login"
+                className='w-full mb-2 inline-flex items-center justify-center bg-gray-800 text-white text-base font-medium px-4 py-2 shadow-sm rounded-md hover:bg-gray-700 uppercase'
+                />
+                <div className=' flex justify-between gap-2 text-sm text-gray-800 w-full'>
+                <Link to="/" className='hover:text-gray-700'>Already have an account, <span>Login</span></Link>
+                </div>
+            </Form>
+                )
+            }}
+        </Formik>
       </div>
   )
 }
