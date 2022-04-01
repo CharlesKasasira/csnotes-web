@@ -14,6 +14,7 @@ export default function Login() {
     const [person, loading, error] = useAuthState(auth)
 
     useEffect(() => {
+      document.title = 'Student\'s App'
       if(loading) return <Loader />
       if(person) return navigate('/dashboard')
     }, [person, loading])

@@ -33,10 +33,10 @@ function SignUp() {
         confirmPassword: ''
     })
 
-    const validatePassword = () => {
+    const validatePassword = (values) => {
         let isValid = true 
-        if(user.password !== '' && user.confirmPassword !== ''){
-            if(user.confirmPassword !== user.password){
+        if(values.password !== '' && values.confirmPassword !== ''){
+            if(values.confirmPassword !== values.password){
                 isValid = false
                 setError("Password doesn't match")
             }
@@ -44,16 +44,15 @@ function SignUp() {
         return isValid
     }
 
-    const handleSignUp = (event) => {
-        event.preventDefault()
+    const handleSignUp = (values) => {
         setError('')
-        if(validatePassword()){
-            createUserWithEmailAndPassword(auth, user.email, user.password)
+        if(validatePassword(values)){
+            createUserWithEmailAndPassword(auth, values.email, values.password)
                 .then( async (cred) => {
                     await addDoc(metaCollection, {
-                        uid: cred.user.uid,
-                        firstName: user.firstName,
-                        lastName: user.lastName
+                        uid: cred.values.uid,
+                        firstName: values.firstName,
+                        lastName: values.lastName
                     })
                 })
                 .then( () => {
@@ -70,9 +69,11 @@ function SignUp() {
                 })
         }
     }
+
+    console.log(user)
   return (
       <div className=" inline-flex justify-center items-center w-screen h-screen bg-gray-50">
-          <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleLogin(values)}>
+          <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleSignUp(values)}>
             {({values, errors, touched, handleChange, handleBlur}) => {
                 return (
                 <Form className='w-8/12 p-10 sm:w-8/12 md:w-5/12 lg:w-4/12 bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg'>
@@ -81,7 +82,7 @@ function SignUp() {
                 <LastName errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
                 <EmailTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
                 <PasswordTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
-                <ConfirmPassword errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
+                <ConfirmPassword error={error} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
                 
                 <input
                 type="submit"
