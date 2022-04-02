@@ -1,16 +1,14 @@
-import { useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import { auth } from '../helpers/firebaseConfig'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from '../hooks'
-import { handleLogin } from '../helpers/utillities'
-import { Loader, PasswordTextField, EmailTextField } from '../components'
+import { handleLogin, validationSchema } from '../helpers/utillities'
+import { Loader, EmailTextField } from '../components'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Formik, Form } from 'formik'
-import { validationSchema } from '../helpers/utillities'
-function ForgotPassword() {
 
-  const navigate = useNavigate()
+function ForgotPassword() {
+    const navigate = useNavigate()
     const [person, loading, error] = useAuthState(auth)
 
     useEffect(() => {
@@ -31,7 +29,7 @@ function ForgotPassword() {
       <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleLogin(values)}>
       {({values, errors, touched, handleChange, handleBlur}) => {
         return (
-          <Form className='w-8/12 p-10 sm:w-8/12 md:w-5/12 lg:w-4/12 bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg'>
+          <Form className='bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg p-8'>
         <h2 className='block text-center font-bold text-2xl'>Forgot Password</h2>
         <EmailTextField errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
         <input

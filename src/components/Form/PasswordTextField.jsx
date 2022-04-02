@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PasswordTextField({ errors, touched, handleChange, handleBlur}) {
+export default function PasswordTextField({ errors, touched, handleChange, handleBlur}) {
   return (
     <div className="mt-3 w-full">
         <label htmlFor="password" className='block'>Password</label>
@@ -14,5 +14,3 @@ function PasswordTextField({ errors, touched, handleChange, handleBlur}) {
     </div>
   )
 }
-
-export default PasswordTextField

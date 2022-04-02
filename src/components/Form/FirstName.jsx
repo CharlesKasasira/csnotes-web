@@ -9,6 +9,11 @@ function FirstName({errors, touched, handleChange, handleBlur}) {
         onBlur={handleBlur('firstName')}
         className='mt-1 w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-1 focus:ring-gray-800'
         />
+        <div className={`${(errors?.firstName  && touched?.firstName) ? "block" : 'hidev'}`} >
+          <label className={`${(errors?.firstName && touched?.firstName) ? "text-red-500 text-sm" : 'text-transparent text-sm'}`}>
+            {`${(errors?.firstName  && touched?.firstName) ? errors.firstName : ''}`}
+          </label>
+        </div>
     </div>
   )
 }

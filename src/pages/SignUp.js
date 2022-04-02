@@ -4,7 +4,7 @@ import { auth, db } from '../helpers/firebaseConfig'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore'
 
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -49,7 +49,8 @@ function SignUp() {
         if(validatePassword(values)){
             createUserWithEmailAndPassword(auth, values.email, values.password)
                 .then( async (cred) => {
-                    await addDoc(metaCollection, {
+                    const docRef = doc(db, 'usermeta', cred.user.uid)
+                    await setDoc(docRef, {
                         uid: cred.user.uid,
                         firstName: values.firstName,
                         lastName: values.lastName
@@ -75,8 +76,9 @@ function SignUp() {
           <ToastContainer />
           <Formik initialValues={user} validationSchema={validationSchema} onSubmit={(values) => handleSignUp(values)}>
             {({values, errors, touched, handleChange, handleBlur}) => {
+                console.log(errors)
                 return (
-                <Form className='w-8/12 p-10 sm:w-8/12 md:w-5/12 lg:w-4/12 bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg'>
+                <Form className='bg-white shadow-md lg:shadow-lg flex justify-center items-center flex-col rounded-lg p-8' name='signForm'>
                 <h2 className='block text-center font-bold text-2xl'>Register</h2>
                 <FirstName errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
                 <LastName errors={errors} touched={touched} handleChange={handleChange} handleBlur={handleBlur} />
